@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'migraineapp'
-    'migrainetracker'
+    'migraineapp',
+    'migrainetracker',
 ]
 
 MIDDLEWARE = [
@@ -130,5 +130,5 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
 STATIC_DIRS = [
-        join (PROJECT_ROOT, 'static')
+        os.path.join(PROJECT_ROOT, 'static')
 ]
