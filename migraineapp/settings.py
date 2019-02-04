@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'migraineapp'
+    'migrainetracker'
 ]
 
 MIDDLEWARE = [
@@ -118,5 +120,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+# CHANGE BELOW BEFORE GOING TO PRODUCTION 
+# All of these variables tell Django where your static resources are at. (local for now)
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATIC_URL = '/static/'
+
+STATIC_DIRS = [
+        join (PROJECT_ROOT, 'static')
+]

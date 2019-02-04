@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
+#import the urls from my migraine tracker app
+import migrainetracker.urls as web_urls
 
+#Django takes these two in order. the first includes my admin sites
+#the second are all of the static resources 
 urlpatterns = [
     path('admin/', admin.site.urls),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+#this regular expression says get all the urls in web_urls(from migrainetracker)
+urlpatterns = [
+    re_path('', include(web_urls)),
 ]
