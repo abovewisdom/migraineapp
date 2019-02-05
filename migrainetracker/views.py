@@ -1,0 +1,11 @@
+from django.shortcuts import render
+
+# Create your views here.
+def index(request):
+    return render(request, 'index.html')
+
+def entry(request):
+    return render(request, 'entry.html')
+# Change below to handle post requests
+def posts(request):
+    return render(request, 'index.html')
