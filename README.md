@@ -8,20 +8,20 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Install Docker
 
 ```
-Give examples
+brew install docker
 ```
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+
+Clone this repo. 
 
 ```
-Give the example
+git clone...
 ```
 
 And repeat
@@ -54,14 +54,14 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+TBD
 
 ## Built With
 This app is built with the Django Framework and Postgres as a database. It is built with the goal of using docker to ultimately deploy the app. 
 
 * [Django](https://www.djangoproject.com/) - The web framework used
 * [Bulma](https://bulma.io/) - The css framework used
-* [Postgres](https://www.postgresql.org/ - Database
+* [Postgres](https://www.postgresql.org/) - Database
 * [Docker](https://www.docker.com/) - Used to make development/deployment easier.
 
 ## Contributing
