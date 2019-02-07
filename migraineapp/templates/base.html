@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
+  {% block js %}{% endblock %}
   <title></title>
 </head>
 <body>
@@ -19,10 +20,9 @@
   "main navigation">
     <div class="navbar-brand">
       {% load static %}
-      <a class="navbar-item" href="https://bulma.io"><img src="{% static "migraineapp/logo.png" %}"></a> 
+      <a class="navbar-item" href=""><img src="{% static "migraineapp/logo.png" %}"></a> 
       <a role="button" class="navbar-burger burger"
-      aria-label="menu" aria-expanded="false" data-target=
-      "navbarbase"></a>
+      aria-label="menu" aria-expanded="false" data-target="navbarbase"></a>
     </div>
     <div id="navbarbase" class="navbar-menu">
       <div class="navbar-start">

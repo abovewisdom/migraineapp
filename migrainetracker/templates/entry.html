@@ -7,28 +7,33 @@
 {% block css %}
 
 {% endblock %}	
+{% block js %}
+<script type="text/javascript" src="{{ STATIC_URL }}js/mgentry.js"></script>
+{% endblock %}	
 {% block body %}
   <section class="section">
     <div class="container">
       <div class="field">
         <label class="label">Migraine Start Time</label>
         <div class="control">
-          <input class="input" type="datetime-local" placeholder="">
+          <input class="input" type="time" placeholder="" id ='stime'>
+        <div class="control">
+          <input class="input" type="date" placeholder="" id='date'>
         </div>
       </div>
       <div class="field">
-        <label class="label">Migraine Start Stage</label>
+        <label class="label">Current Stage</label>
         <div class="control">
           <div class="select">
             <select>
               <option>
-                Before 
+                Before Start 
               </option>
               <option>
-                Start 
+                Early 
               </option>
               <option>
-                Middle 
+                Late 
               </option>
             </select>
           </div>
