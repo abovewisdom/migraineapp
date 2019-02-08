@@ -24,10 +24,10 @@ Clone this repo.
 git clone...
 ```
 
-And repeat
+And to launch the web app:
 
 ```
-until finished
+docker-compose up
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
