@@ -9,3 +9,9 @@ def entry(request):
 # Change below to handle post requests
 def posts(request):
     return render(request, 'index.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def login(request):
+    return render(request, 'login.html')
