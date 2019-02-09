@@ -18,7 +18,7 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 #import the urls from my migraine tracker app
-import migrainetracker.urls as web_urls
+import web.urls as web_urls
 
 #Django takes these two in order. the first includes my admin sites
 #the second are all of the static resources 
