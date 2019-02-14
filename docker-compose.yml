@@ -3,6 +3,10 @@ version: '3'
 services:
   db:
     image: postgres
+  dbadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - db
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
