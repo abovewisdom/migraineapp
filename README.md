@@ -52,7 +52,7 @@ Give an example
 
 ## Deployment
 
-TBD
+TBD: Planning on using Docker and AWS tools to deploy. 
 
 ## Built With
 This app is built with the Django Framework and Postgres as a database. It is built with the goal of using docker to ultimately deploy the app. 
