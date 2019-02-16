@@ -30,7 +30,7 @@ And to launch the web app:
 docker-compose up
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+TODO: End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
@@ -61,16 +61,16 @@ This app is built with the Django Framework and Postgres as a database. It is bu
 
 * [Django](https://www.djangoproject.com/) - The web framework used
 * [Bulma](https://bulma.io/) - The css framework used
+* [pgAdmin 4](https://www.pgadmin.org/) - UI for Database Configuration
 * [Postgres](https://www.postgresql.org/) - Database
 * [Docker](https://www.docker.com/) - Used to make development/deployment easier.
 
 ## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+For now this repo is a private project and I don't plan on others being interested in contributing. If you are interested or have questions please open an Issue on Github. 
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+TODO: I plan on using [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
