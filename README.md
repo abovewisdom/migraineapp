@@ -1,6 +1,6 @@
 # migraineapp
 
-This app is used to enter and track migraines. The MVP of this project will include the ability to create an account, log a migraine, and view the details for each migraine you have entered. 
+This app is used to enter and track migraines. The MVP of this project will include the ability to create an account, log a migraine, and view the details for each migraine entered. 
 
 ## Getting Started
 
