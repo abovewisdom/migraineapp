@@ -3,13 +3,15 @@ version: '3'
 services:
   db:
     image: postgres
+    volumes: 
+      - data:/var/lib/postgresql/data 
   dbadmin:
     image: dpage/pgadmin4
     environment: 
       PGADMIN_DEFAULT_EMAIL: "test@example.com"
       PGADMIN_DEFAULT_PASSWORD: "changeME2019"
     ports: 
-    - "5450:80"
+      - "5450:80"
     depends_on:
       - db
   web:
@@ -21,3 +23,5 @@ services:
       - "8000:8000"
     depends_on:
       - db
+volumes:
+  data:
