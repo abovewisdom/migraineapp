@@ -16,12 +16,10 @@ brew install docker
 
 ### Installing
 
-
-
 Clone this repo. 
 
 ```
-git clone...
+git clone https://github.com/abovewisdom/migraineapp.git
 ```
 
 And to launch the web app:
