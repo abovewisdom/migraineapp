@@ -5,6 +5,9 @@ services:
     image: postgres
     volumes: 
       - data:/var/lib/postgresql/data 
+    networks:
+      - backend
+
   dbadmin:
     image: dpage/pgadmin4
     environment: 
@@ -13,7 +16,10 @@ services:
     ports: 
       - "5450:80"
     depends_on:
-      - db
+      - "db"
+    networks:
+      - backend
+        
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -22,6 +28,13 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      - "db"
+    networks:
+      - backend
+
 volumes:
   data:
+          
+networks:
+  backend:
+    driver: bridge
