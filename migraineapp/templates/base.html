@@ -7,47 +7,50 @@
   <meta name="viewport" content=
   "width=device-width, initial-scale=1">
   {% block js %}{% endblock %}
+  {% load static %}
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title></title>
 </head>
 <body>
   {% block css %}{% endblock %}
   <title>{% block title %}{% endblock %}</title>
-  <link rel="stylesheet" href=
-  "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
-  <script defer src=
-  "https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  <nav class="navbar" role="navigation" aria-label=
-  "main navigation">
-    <div class="navbar-brand">
-      {% load static %}
-      <a class="navbar-item" href=""><img src="{% static "migraineapp/logo.png" %}"></a> 
-      <a role="button" class="navbar-burger burger"
-      aria-label="menu" aria-expanded="false" data-target="navbarbase"></a>
-    </div>
-    <div id="navbarbase" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/">Dashboard</a> 
-	<a class="navbar-item" href="/entry">New Migraine</a>
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">More</a>
-          <div class="navbar-dropdown">
-            <a class="navbar-item">My Migraines</a>
-	    <a class="navbar-item">Reports</a> 
-	    <a class="navbar-item">Contact</a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">Report an issue</a>
-          </div>
-        </div>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary"><strong>Sign up</strong></a> 
-	    <a class="button is-light">Log in</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>{% block body %} {% endblock %}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex">
+    <a class="navbar-brand" href=""><img src="{% static "migraineapp/logo.png" %}"></a> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button><div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Dashboard <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/entry">New Migraine</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Reports</a>
+      </li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role ="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	Contact
+	</a>
+	<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="#">Report an issue</a>
+          <a class="dropdown-item" href="#">General Feedback</a>
+	</div>
+      </li>
+    </ul>
+  <form class="form-inline">
+    <button class="btn btn-outline-success form-control mr-sm-2" type="button">Sign Up</button>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="button">Login</button>
+  </form>
+  </div>
+</nav>
+ {% block body %} {% endblock %}
+{% comment %}
+Below are the javascript files needed for Bootstrap 4 to work correctly.
+{% endcomment %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'migraineapp',
     'web',
+    'crispy_forms',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Settings for Form Templates
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -132,3 +135,13 @@ STATIC_URL = '/static/'
 STATIC_DIRS = [
         os.path.join(PROJECT_ROOT, 'static')
 ]
+
+#Settings for Crispy forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = (
+    "bootstrap",
+    "uni_form",
+    "bootstrap3",
+    "bootstrap4",
+)
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"

@@ -59,7 +59,7 @@ TBD: Planning on using Docker and AWS tools to deploy.
 This app is built with the Django Framework and Postgres as a database. It is built with the goal of using docker to ultimately deploy the app. 
 
 * [Django](https://www.djangoproject.com/) - The web framework used
-* [Bulma](https://bulma.io/) - The css framework used
+* [Bootstrap 4](https://getbootstrap.com/) - The css framework used
 * [pgAdmin 4](https://www.pgadmin.org/) - UI for Database Configuration
 * [Postgres](https://www.postgresql.org/) - Database
 * [Docker](https://www.docker.com/) - Used to make development/deployment easier.
