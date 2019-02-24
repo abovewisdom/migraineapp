@@ -23,6 +23,12 @@ Clone this repo.
 git clone https://github.com/abovewisdom/migraineapp.git
 ```
 
+If changes have been made to the database model run this command in the web container, `mgappdocker_web_1`
+
+```
+python3 manage.py migrate
+```
+
 And to launch the web app:
 
 ```
