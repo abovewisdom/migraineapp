@@ -1,7 +1,3 @@
 from django.db import models
 
-#class Users(models.User):
-
-    #id added automatically
-
 
