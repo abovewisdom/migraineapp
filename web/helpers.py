@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import logout
 
 def apology(message, code=400):
     """Render message as an apology to user."""
