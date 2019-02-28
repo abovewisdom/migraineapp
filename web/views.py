@@ -1,4 +1,4 @@
-from web.forms import RegisterForm
+from web.forms import RegisterForm, LoginForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, Http404
@@ -12,9 +12,6 @@ def index(request):
 
 def entry(request):
     return render(request, 'entry.html')
-# Change below to handle post requests
-def posts(request):
-    return render(request, 'index.html')
 
 def register(request):
     if request.method == 'POST':
@@ -25,7 +22,7 @@ def register(request):
             form.save()
             user = authenticate(request, username=prequest['username'], password=prequest['password1'])
             if user is not None:
-                login(request,user)
+                login(request, user)
                 return render(request, 'index.html') 
             else:
                 raise Http404("User is not logged in.")
@@ -34,8 +31,24 @@ def register(request):
         form = RegisterForm()
         return render(request, 'register.html', {'form': RegisterForm})
 
-def loginpage(request):
-    return render(request, 'login.html')
+def userlogin(request):
+    logout(request)
+    username = password = ''
+    if request.POST:
+        form = LoginForm(request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request, user)
+                return render(request, 'index.html')
+        else:
+            raise Http404("Username and or password not found")
+    else:
+        form = LoginForm()
+        return render(request, 'userlogin.html', {'form': LoginForm})
 
 def userlogout(request):
     if request.user.is_authenticated:

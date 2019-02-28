@@ -57,3 +57,17 @@ class RegisterForm(forms.Form):
 #        # I've tried both of these 'fields' declaration, result is the same
 #        # fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
 #        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email',)
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
+    password = forms.CharField(label='Enter Password', widget=forms.PasswordInput)
+ 
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-loginform'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = ''
+
+        self.helper.add_input(Submit('submit', 'Login'))
+        super(LoginForm, self).__init__(*args, **kwargs)
