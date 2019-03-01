@@ -1,7 +1,11 @@
+from web.models import MigraineStage, MedicineChoices
 from django import forms
+import time
+from datetime import date
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.utils import timezone
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions
@@ -71,3 +75,19 @@ class LoginForm(forms.Form):
 
         self.helper.add_input(Submit('submit', 'Login'))
         super(LoginForm, self).__init__(*args, **kwargs)
+
+class MgEntryForm(forms.Form):
+    mgstarttime = forms.DateTimeField(label='Migraine Start Time')
+    mgstartdate = forms.DateField(label='Migraine Start Date')
+    mgstartstage = forms.ChoiceField(choices=MigraineStage.MIGRAINE_START_STATE_CHOICES, label='Current Stage')
+    mgstartmedicine = forms.ChoiceField(choices=MedicineChoices.MEDICINE_CHOICES, label='Medicine Taking Now') 
+
+    def __init__(self, *args, **kwargs):
+        self.helper = FormHelper()
+        self.helper.form_id = 'id-mgentryform'
+        self.helper.form_class = 'blueForms'
+        self.helper.form_method = 'post'
+        self.helper.form_action = ''
+
+        self.helper.add_input(Submit('submit', 'Submit'))
+        super(MgEntryForm, self).__init__(*args, **kwargs)

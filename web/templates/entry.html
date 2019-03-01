@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}
     Form
@@ -11,60 +11,7 @@
 <script type="text/javascript" src="{{ STATIC_URL }}js/mgentry.js"></script>
 {% endblock %}	
 {% block body %}
-  <section class="section">
-    <div class="container">
-      <div class="field">
-        <label class="label">Migraine Start Time</label>
-        <div class="control">
-          <input class="input" type="time" placeholder="" id ='stime'>
-        <div class="control">
-          <input class="input" type="date" placeholder="" id='date'>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Current Stage</label>
-        <div class="control">
-          <div class="select">
-            <select>
-              <option>
-                Before Start 
-              </option>
-              <option>
-                Early 
-              </option>
-              <option>
-                Late 
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <label class="label">Medicine Taking Now</label>
-        <div class="control">
-          <div class="select">
-            <select>
-              <option>
-                Advil 
-              </option>
-              <option>
-                Maxol 
-              </option>
-              <option>
-                Imitrex 
-              </option>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="field is-grouped">
-        <div class="control">
-          <button class="button is-link">Submit</button>
-        </div>
-        <div class="control">
-          <button class="button is-text">Cancel</button>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="container-fluid">
+   {% crispy form%}
+</div>
 {% endblock %}

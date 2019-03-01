@@ -1,4 +1,4 @@
-from web.forms import RegisterForm, LoginForm
+from web.forms import RegisterForm, LoginForm, MgEntryForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse, Http404
@@ -11,7 +11,7 @@ def index(request):
     return render(request, 'index.html')
 
 def entry(request):
-    return render(request, 'entry.html')
+    return render(request, 'entry.html', {'form': MgEntryForm})
 
 def register(request):
     if request.method == 'POST':
