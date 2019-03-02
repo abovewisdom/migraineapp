@@ -1,7 +1,7 @@
 from web.models import MigraineStage, MedicineChoices
 from django import forms
 import time
-from datetime import date
+from datetime import date, datetime
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
@@ -77,8 +77,7 @@ class LoginForm(forms.Form):
         super(LoginForm, self).__init__(*args, **kwargs)
 
 class MgEntryForm(forms.Form):
-    mgstarttime = forms.DateTimeField(label='Migraine Start Time')
-    mgstartdate = forms.DateField(label='Migraine Start Date')
+    mgstarttime = forms.DateTimeField(label='Migraine Start Time', initial=datetime.now())
     mgstartstage = forms.ChoiceField(choices=MigraineStage.MIGRAINE_START_STATE_CHOICES, label='Current Stage')
     mgstartmedicine = forms.ChoiceField(choices=MedicineChoices.MEDICINE_CHOICES, label='Medicine Taking Now') 
 
