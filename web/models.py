@@ -23,7 +23,7 @@ class MedicineChoices(models.Model):
         (IMITREX, 'Imitrex'),
     )
 
-class migraines(models.Model):
+class Migraines(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)    
     mgstart_time = models.DateTimeField
     mgstart_stage = models.CharField(choices=MigraineStage.MIGRAINE_START_STATE_CHOICES, max_length = 40)

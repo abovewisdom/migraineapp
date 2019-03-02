@@ -11,7 +11,11 @@ def index(request):
     return render(request, 'index.html')
 
 def entry(request):
-    return render(request, 'entry.html', {'form': MgEntryForm})
+    if request.method == 'POST':
+        form = MgEntryForm(request.POST)
+        
+    else:
+        return render(request, 'entry.html', {'form': MgEntryForm})
 
 def register(request):
     if request.method == 'POST':
