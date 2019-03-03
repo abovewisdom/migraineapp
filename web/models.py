@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import date
+from datetime import date 
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -25,7 +25,7 @@ class MedicineChoices(models.Model):
 
 class Migraines(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)    
-    mgstart_time = models.DateTimeField
+    mgstart_time = models.DateTimeField()
     mgstart_stage = models.CharField(choices=MigraineStage.MIGRAINE_START_STATE_CHOICES, max_length = 40)
     mgstart_medicine = models.CharField(choices=MedicineChoices.MEDICINE_CHOICES, max_length = 40)
     created_at = models.DateTimeField(auto_now_add=True)

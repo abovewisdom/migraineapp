@@ -1,6 +1,8 @@
-from web.forms import RegisterForm, LoginForm, MgEntryForm
+from web.forms import RegisterForm, LoginForm, MigrainesForm
 from django.contrib.auth.models import User
+from web.models import Migraines
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import auth
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
 import pdb
@@ -11,11 +13,28 @@ def index(request):
     return render(request, 'index.html')
 
 def entry(request):
-    if request.method == 'POST':
-        form = MgEntryForm(request.POST)
-        
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = MigrainesForm(request.POST, user=request.user)
+            #assert form.is_valid()
+            if form.is_valid():
+                #finalform is needed to add user before saving, the false commit is used to do this
+                finalform = form.save(commit=False)
+                finalform.user = request.user
+                finalform.save()
+                #form.save()
+                return render(request, 'index.html') 
+            #messages.success(request, 'Migraine Logged Successfully')
+            else:
+                message = "The form has errors"
+                explanation = form.errors.as_data()
+                status_code = 400
+                raise Http404("Fields not valid.")
+        else:
+            if request.user.is_authenticated:
+                return render(request, 'entry.html', {'form': MigrainesForm})
     else:
-        return render(request, 'entry.html', {'form': MgEntryForm})
+        raise Http404("You must be logged in to use this form")
 
 def register(request):
     if request.method == 'POST':

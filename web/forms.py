@@ -1,5 +1,6 @@
-from web.models import MigraineStage, MedicineChoices
+from web.models import MigraineStage, MedicineChoices, Migraines
 from django import forms
+from django.forms import ModelForm
 import time
 from datetime import date, datetime
 from django.contrib.auth.forms import UserCreationForm
@@ -76,17 +77,20 @@ class LoginForm(forms.Form):
         self.helper.add_input(Submit('submit', 'Login'))
         super(LoginForm, self).__init__(*args, **kwargs)
 
-class MgEntryForm(forms.Form):
-    mgstarttime = forms.DateTimeField(label='Migraine Start Time', initial=datetime.now())
-    mgstartstage = forms.ChoiceField(choices=MigraineStage.MIGRAINE_START_STATE_CHOICES, label='Current Stage')
-    mgstartmedicine = forms.ChoiceField(choices=MedicineChoices.MEDICINE_CHOICES, label='Medicine Taking Now') 
+class MigrainesForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
-        self.helper = FormHelper()
-        self.helper.form_id = 'id-mgentryform'
-        self.helper.form_class = 'blueForms'
-        self.helper.form_method = 'post'
-        self.helper.form_action = ''
+        self._user = kwargs.pop('user', None)
+        super(MigrainesForm, self).__init__(*args, **kwargs)
+        #if not self.instance:
+        self.fields['mgstart_time'].initial = datetime.now()
+        # If you pass FormHelper constructor a form instance
+        # It builds a default layout with all its fields
+        self.helper = FormHelper(self)
 
-        self.helper.add_input(Submit('submit', 'Submit'))
-        super(MgEntryForm, self).__init__(*args, **kwargs)
+        # You can dynamically adjust your layout
+        self.helper.layout.append(Submit('save', 'save'))
+    class Meta:
+        model = Migraines
+        fields = ['mgstart_time', 'mgstart_stage', 'mgstart_medicine',]
+#
