@@ -18,4 +18,25 @@
 	Migraines During High Pressure. 
       </p>
   </main>
+{% if request.user.is_authenticated %}
+<table class="table">
+  <thead>
+    <tr>
+       {% for k in header %}
+       <th>{{k}}</th>
+       {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in rows %}
+    <tr>
+      <td>{{r.id}}</td>
+      <td>{{r.mgstart_stage}}</td>
+      <td>{{r.mgstart_medicine}}</td>
+      <td>{{r.mgstart_time}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
 {% endblock %}

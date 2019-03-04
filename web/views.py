@@ -1,5 +1,6 @@
 from web.forms import RegisterForm, LoginForm, MigrainesForm
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView
 from web.models import Migraines
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
@@ -9,8 +10,20 @@ import pdb
 #from helpers import apology - needs to be created right
 
 # Create your views here.
+class table(TemplateView):
+    template_name = 'index.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super(table, self).get_context_data(**kwargs)
+        ctx['header'] = ['id', 'mgstart_stage','mgstart_medicine', 'mgstart_time']
+        #need to figure out how to limit the rows to just the user who is logged in
+        ctx['rows'] = Migraines.objects.all().filter(user=self.user)
+            
+        return ctx
+    
 def index(request):
     return render(request, 'index.html')
+
 
 def entry(request):
     if request.user.is_authenticated:

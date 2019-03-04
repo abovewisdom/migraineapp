@@ -33,6 +33,7 @@ class Migraines(models.Model):
 
     def get_absolute_url(self):
         return reverse('modelforms:index')
+
 #class timecalc(models.Model):
 #    todaydate = models.DateField(default=date.today)
 #    todaytime = models.DateTimeField(detault=
