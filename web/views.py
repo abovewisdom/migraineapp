@@ -15,9 +15,8 @@ class table(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(table, self).get_context_data(**kwargs)
-        ctx['header'] = ['id', 'mgstart_stage','mgstart_medicine', 'mgstart_time']
-        #need to figure out how to limit the rows to just the user who is logged in
-        ctx['rows'] = Migraines.objects.all().filter(user=self.user)
+        ctx['header'] = ['user','id', 'mgstart_stage','mgstart_medicine', 'mgstart_time']
+        ctx['rows'] = Migraines.objects.filter(user_id = self.request.user.id)
             
         return ctx
     
@@ -29,7 +28,6 @@ def entry(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
             form = MigrainesForm(request.POST, user=request.user)
-            #assert form.is_valid()
             if form.is_valid():
                 #finalform is needed to add user before saving, the false commit is used to do this
                 finalform = form.save(commit=False)
