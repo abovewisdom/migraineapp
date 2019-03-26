@@ -15,7 +15,7 @@ class table(TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super(table, self).get_context_data(**kwargs)
-        ctx['header'] = ['user','id', 'mgstart_stage','mgstart_medicine', 'mgstart_time']
+        ctx['header'] = ['user','id', 'Migraine Stage','Medicine Taken', 'Migraine Start Time']
         ctx['rows'] = Migraines.objects.filter(user_id = self.request.user.id)
             
         return ctx
