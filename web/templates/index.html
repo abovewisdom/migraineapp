@@ -8,15 +8,17 @@
 {% endblock %}	
 {% block body %}
   <main class="container" role="main">
-      <h1 class="title">
-        My Migraine Health
-      </h1>
-      <p class="subtitle">
-      	Contain Number of Migraines in Last 30 days. 
-	Average Severity. 
-	Migraines During Low Pressure. 
-	Migraines During High Pressure. 
-      </p>
+    <h1 class="title">My Migraine Health</h1>
+    <div class="container bg-secondary">
+      <h2 class="subtitle">Time</h2>Contain Number of Migraines in
+      Last 30 days.
+    </div>
+    <div class="container bg-success">
+      <h2 class="subtitle">Severity at Start</h2>Severity by Percentage.
+    </div>
+    <div class="container bg-danger">
+      <h2 class="subtitle">Weather at Start</h2>High/Low Pressure, temperature.
+    </div>
   </main>
 {% if request.user.is_authenticated %}
 <div class = container>
