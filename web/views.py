@@ -49,9 +49,9 @@ def entry(request):
 
 def register(request):
     if request.method == 'POST':
-        #pdb.set_trace()
         prequest = request.POST
         form = RegisterForm(request.POST)
+        #don't have validation if someone tries to use a username that has already been used.
         if form.is_valid():
             form.save()
             user = authenticate(request, username=prequest['username'], password=prequest['password1'])
@@ -60,7 +60,6 @@ def register(request):
                 return render(request, 'index.html') 
             else:
                 raise Http404("User is not logged in.")
-            #messages.success(request, 'Account created successfully')
     else:
         form = RegisterForm()
         return render(request, 'register.html', {'form': RegisterForm})
