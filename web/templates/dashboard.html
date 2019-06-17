@@ -2,19 +2,24 @@
 {% load static %}
 
 {% block title %}
-    Index
+   My Migraines Dashboard 
 {% endblock %}
 {% block css %}
 {% endblock %}	
 {% block body %}
   <main class="container" role="main">
-    <h1 class="title">Migraine Tracker</h1>
+    <h1 class="title">My Migraine Health</h1>
     <div class ="row">
 <!--Add custom css file to static resources and change the layout of these columns-->
-    <div class="col">
-      Migraine tracker helps you track when your migraines
-      happen and more! Click 'Sign Up' to get started or 'How does this work?' for more
-      information.
+    <div class="col  bg-secondary">
+      <h2 class="subtitle">Time</h2>Contain Number of Migraines in
+      Last 30 days.
+    </div>
+    <div class="col bg-success">
+      <h2 class="subtitle">Severity at Start</h2>Severity by Percentage.
+    </div>
+    <div class="col bg-danger">
+      <h2 class="subtitle">Weather at Start</h2>High/Low Pressure, temperature.
     </div>
     </div>
   </main>

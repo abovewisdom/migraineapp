@@ -11,7 +11,7 @@ import pdb
 
 # Create your views here.
 class table(TemplateView):
-    template_name = 'index.html'
+    template_name = 'dashboard.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(table, self).get_context_data(**kwargs)
@@ -23,6 +23,8 @@ class table(TemplateView):
 def index(request):
     return render(request, 'index.html')
 
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 def entry(request):
     if request.user.is_authenticated:

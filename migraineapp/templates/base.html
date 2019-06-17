@@ -43,12 +43,18 @@
 {% endcomment %}
     {% if request.user.is_authenticated %}
       <li class="nav-item active">
-        <a class="nav-link" href="/entry">New Migraine</a>
+        <a class="nav-link" href="/entry">Enter New Migraine</a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="/reports">Reports</a>
+        <a class="nav-link" href="/dashboard">My Dashboard</a>
       </li>
     {% endif %}
+      <li class="nav-item active">
+        <a class="nav-link" href="/howto">How does this work?</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/whytrackmigraines">Why track your migraines?</a>
+      </li>
       <li class="nav-item active dropdown ">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role ="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	Contact
@@ -72,7 +78,7 @@
  {% block body %} {% endblock %}
   <footer class ="footer">
     <div class="container text-center">
-      <p class="text-muted credit" style="color:#fff">Created by Discocorg</p>
+      <p class="text-muted credit" style="color:#fff">Created by Discocorg. Pardon the dust, this site is a work in progress!</p>
     </div>
   </footer>
 {% comment %}
