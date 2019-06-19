@@ -5,8 +5,8 @@ from web.models import Migraines
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
 from django.http import HttpResponse, Http404
-from django.shortcuts import render
-import pdb
+from django.shortcuts import render, redirect
+from django.urls import reverse
 #from helpers import apology - needs to be created right
 
 # Create your views here.
@@ -26,6 +26,12 @@ def index(request):
 def dashboard(request):
     return render(request, 'dashboard.html')
 
+def tour(request):
+    return render(request, 'tour.html')
+
+def whytrack(request):
+    return render(request, 'why-track.html')
+
 def entry(request):
     if request.user.is_authenticated:
         if request.method == 'POST':
@@ -36,7 +42,7 @@ def entry(request):
                 finalform.user = request.user
                 finalform.save()
                 #form.save()
-                return render(request, 'index.html') 
+                return render(request, 'dashboard.html') 
             #messages.success(request, 'Migraine Logged Successfully')
             else:
                 message = "The form has errors"
@@ -78,7 +84,8 @@ def userlogin(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return render(request, 'index.html')
+                #need to fix the redirect here.
+                return redirect(reverse('dashboard'))
         else:
             raise Http404("Username and or password not found")
     else:
