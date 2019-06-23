@@ -4,17 +4,17 @@ from django.views.generic import TemplateView
 from web.models import Migraines
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 #from helpers import apology - needs to be created right
 
 # Create your views here.
-class table(TemplateView):
-    template_name = 'dashboard.html'
+class MigraineListTable(TemplateView):
+    template_name = 'dashbaord.html'
 
     def get_context_data(self, **kwargs):
-        ctx = super(table, self).get_context_data(**kwargs)
+        ctx = super(MigraineListTable, self).get_context_data(**kwargs)
         ctx['header'] = ['user','id', 'Migraine Stage','Medicine Taken', 'Migraine Start Time']
         ctx['rows'] = Migraines.objects.filter(user_id = self.request.user.id)
             
@@ -24,7 +24,7 @@ def index(request):
     return render(request, 'index.html')
 
 def dashboard(request):
-    return render(request, 'dashboard.html')
+    return redirect(request, 'dashboard.html')
 
 def tour(request):
     return render(request, 'tour.html')
@@ -84,8 +84,8 @@ def userlogin(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                #need to fix the redirect here.
-                return redirect(reverse('dashboard'))
+                #return redirect('dashboard')
+                return HttpResponseRedirect('dashboard.html')
         else:
             raise Http404("Username and or password not found")
     else:
