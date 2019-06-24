@@ -9,21 +9,34 @@
 {% block body %}
   <main class="container" role="main">
     <h1 class="title">My Migraine Health</h1>
-    <div class ="row">
+    <div class ="row mycards">
 <!--Add custom css file to static resources and change the layout of these columns-->
-    <div class="col  bg-secondary">
-      <h2 class="subtitle">Time</h2>Contain Number of Migraines in
-      Last 30 days.
-    </div>
-    <div class="col bg-success">
-      <h2 class="subtitle">Severity at Start</h2>Severity by Percentage.
-    </div>
-    <div class="col bg-danger">
-      <h2 class="subtitle">Weather at Start</h2>High/Low Pressure, temperature.
-    </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">100</h2>
+  	  <p class="card-text">Migraines in last 30 days.</p>
+  	</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">75%</h2>
+  	  <p class="card-text">of your migraines start at severe.</p>
+  	</div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title text-center">90 Min</h2>
+  	  <p class="card-text">Average Length of Migraine.</p>
+  	</div>
+        </div>
+      </div>
     </div>
   </main>
-{% if request.user.is_authenticated %}
 <div class = container>
 <table class="table">
   <thead>
@@ -46,5 +59,4 @@
   </tbody>
 </table>
 </div>
-{% endif %}
 {% endblock %}

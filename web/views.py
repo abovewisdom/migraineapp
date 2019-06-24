@@ -11,7 +11,7 @@ from django.urls import reverse
 
 # Create your views here.
 class MigraineListTable(TemplateView):
-    template_name = 'dashbaord.html'
+    template_name = 'dashboard.html'
 
     def get_context_data(self, **kwargs):
         ctx = super(MigraineListTable, self).get_context_data(**kwargs)
@@ -24,6 +24,12 @@ def index(request):
     return render(request, 'index.html')
 
 def dashboard(request):
+    #Get Dashboard data(needs to be updated to get card data)
+    def get_context_data(self, **kwargs):
+        ctx = super(MigraineListTable, self).get_context_data(**kwargs)
+        ctx['header'] = ['user','id', 'Migraine Stage','Medicine Taken', 'Migraine Start Time']
+        ctx['rows'] = Migraines.objects.filter(user_id = self.request.user.id)
+
     return redirect(request, 'dashboard.html')
 
 def tour(request):
