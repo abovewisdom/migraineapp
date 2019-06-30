@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'web',
     'crispy_forms',
     'bootstrap4',
+    'django_icons',
 ]
 
 MIDDLEWARE = [

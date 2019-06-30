@@ -7,33 +7,27 @@
 {% block css %}
 {% endblock %}	
 {% block body %}
+{% load icons %}
   <main class="container" role="main">
     <h1 class="title">My Migraine Health</h1>
-    <div class ="row mycards">
-<!--Add custom css file to static resources and change the layout of these columns-->
-      <div class="col">
+    <div class ="row mycards card-deck">
         <div class="card">
           <div class="card-body">
             <h2 class="card-title text-center">100</h2>
   	  <p class="card-text">Migraines in last 30 days.</p>
-  	</div>
+  	  </div>
         </div>
-      </div>
-      <div class="col">
         <div class="card">
           <div class="card-body">
             <h2 class="card-title text-center">75%</h2>
   	  <p class="card-text">of your migraines start at severe.</p>
-  	</div>
+  	  </div>
         </div>
-      </div>
-      <div class="col">
         <div class="card">
           <div class="card-body">
             <h2 class="card-title text-center">90 Min</h2>
   	  <p class="card-text">Average Length of Migraine.</p>
-  	</div>
-        </div>
+          </div>
       </div>
     </div>
   </main>
@@ -54,6 +48,8 @@
       <td>{{r.mgstart_stage}}</td>
       <td>{{r.mgstart_medicine}}</td>
       <td>{{r.mgstart_time}}</td>
+      <td>{{r.mgend_time}}</td>
+      <td><a href="/entry">{% icon 'edit' %}</a></td>
     </tr>
     {% endfor %}
   </tbody>

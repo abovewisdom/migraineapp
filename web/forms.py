@@ -3,7 +3,6 @@ from django import forms
 from django.forms import ModelForm
 import time
 from datetime import date, datetime
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.utils import timezone
@@ -57,11 +56,6 @@ class RegisterForm(forms.Form):
         self.helper.add_input(Submit('submit', 'Register'))
         super(RegisterForm, self).__init__(*args, **kwargs)
 
-#    class Meta(UserCreationForm.Meta):
-#        model = User
-#        # I've tried both of these 'fields' declaration, result is the same
-#        # fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', )
-#        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email',)
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
@@ -92,5 +86,6 @@ class MigrainesForm(forms.ModelForm):
         self.helper.layout.append(Submit('save', 'save'))
     class Meta:
         model = Migraines
-        fields = ['mgstart_time', 'mgstart_stage', 'mgstart_medicine',]
-#
+        fields = ['mgstart_time', 'mgstart_stage', 'mgstart_medicine', 'mgstart_time',]
+
+    
