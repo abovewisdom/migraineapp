@@ -1,9 +1,10 @@
 from django.urls import re_path, path
-from web.views import index, entry, register, userlogin, userlogout, MigraineListTable, dashboard, tour, whytrack
+from web.views import index, entry, register, userlogin, userlogout, MigraineListTable, dashboard, tour, whytrack, editentry
 
 urlpatterns = [
     path('', index),
     path('entry', entry),
+    re_path(r'^entry/(?P<row_id>\d+)/$', editentry),
     path('register', register),
     path('userlogin', userlogin),
     path('userlogout', userlogout),

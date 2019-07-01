@@ -5,7 +5,7 @@ from web.models import Migraines
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import auth
 from django.http import HttpResponse, Http404, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 #from helpers import apology - needs to be created right
 
@@ -52,6 +52,30 @@ def entry(request):
         else:
             if request.user.is_authenticated:
                 return render(request, 'entry.html', {'form': MigrainesForm})
+    else:
+        raise Http404("You must be logged in to use this form")
+
+def editentry(request, row_id):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            updatethismigraine = get_object_or_404(Migraines, pk=row_id)
+            saveform = MigrainesForm(request.POST, instance=updatethismigraine)
+            if saveform.is_valid():
+                finalform = saveform.save(commit=False)
+                finalform.user = request.user
+                finalform.save()
+                return render(request, 'dashboard.html') 
+            else:
+                message = "The form has errors"
+                explanation = saveform.errors.as_data()
+                status_code = 400
+                raise Http404("Fields not valid.")
+        else:
+            mymigraine = get_object_or_404(Migraines, pk=row_id)
+            if mymigraine.user != request.user:
+                return HttpResponseForbidden()
+            form = MigrainesForm(instance=mymigraine)
+            return render(request, 'entry.html', {'form': form})
     else:
         raise Http404("You must be logged in to use this form")
 

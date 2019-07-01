@@ -76,7 +76,6 @@ class MigrainesForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         self._user = kwargs.pop('user', None)
         super(MigrainesForm, self).__init__(*args, **kwargs)
-        #if not self.instance:
         self.fields['mgstart_time'].initial = datetime.now()
         # If you pass FormHelper constructor a form instance
         # It builds a default layout with all its fields
@@ -86,6 +85,6 @@ class MigrainesForm(forms.ModelForm):
         self.helper.layout.append(Submit('save', 'save'))
     class Meta:
         model = Migraines
-        fields = ['mgstart_time', 'mgstart_stage', 'mgstart_medicine', 'mgstart_time',]
+        fields = ['mgstart_time', 'mgstart_stage', 'mgstart_medicine', 'mgend_time',]
 
     
