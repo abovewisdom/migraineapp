@@ -1,6 +1,6 @@
 # migraineapp
 
-This app is used to enter and track migraines. The MVP of this project will include the ability to create an account, log a migraine, and view the details for each migraine entered. 
+This web app gives users the ability to track migraines and view basic trending statistics regarding their migraine attacks. This is a work in progress, you can see my plans for the app [here.](https://trello.com/b/7O7j14Ni/migraine-app) Eventually I plan on having this app hosted using services on AWS but this won't take place until the MVP(Minimal Viable Product) is complete. The MVP of this project will include the ability to create an account, log a migraine, and edit/view the details for each migraine entered. 
 
 ## Getting Started
 
@@ -20,10 +20,10 @@ brew install docker
 Clone this repo. 
 
 ```
-git clone https://github.com/abovewisdom/migraineapp.git
+git clone https://github.com/discocorg/migraineapp.git
 ```
 
-If changes have been made to the database model run this command in the web container, `mgappdocker_web_1`
+If changes have been made to the database model run this command in the web container, for example:  `mgappdocker_web_1`
 
 ```
 python3 manage.py migrate
@@ -35,7 +35,7 @@ And to launch the web app:
 docker-compose up
 ```
 
-TODO: End with an example of getting some data out of the system or using it for a little demo
+TODO: End with a small demo. 
 
 ## Running the tests
 
