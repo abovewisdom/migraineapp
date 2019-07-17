@@ -1,6 +1,6 @@
-# migraineapp
+# Migraine Tracking App
 
-This web app gives users the ability to track migraines and view basic trending statistics regarding their migraine attacks. This is a work in progress, you can see my plans for the app [here.](https://trello.com/b/7O7j14Ni/migraine-app) Eventually I plan on having this app hosted using services on AWS but this won't take place until the MVP(Minimal Viable Product) is complete. The MVP of this project will include the ability to create an account, log a migraine, and edit/view the details for each migraine entered. 
+This web app gives users the ability to track migraines and view basic trending statistics regarding their migraine attacks. This is a work in progress, you can see my plans for the app [here.](https://trello.com/b/7O7j14Ni/migraine-app) Eventually I plan on having this app hosted using AWS but this won't take place until the MVP (Minimal Viable Product) is complete. The MVP of this project will include the ability to create an account, log a migraine, and edit/view the details for each migraine entered. 
 
 ## Getting Started
 
